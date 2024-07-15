@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 /** @jsx jsx */
 import {
   jsx,
@@ -16,6 +16,7 @@ import ModalVideo from "react-modal-video";
 import { IoIosPlay } from "react-icons/io";
 import service from "assets/service.png";
 import ServiceThumb from "assets/logo.jpg";
+import { LoginContext } from "contexts/login-context";
 
 const data = {
   subTitle: "",
@@ -74,69 +75,78 @@ const data = {
 };
 
 export default function ServiceSection() {
+  const { isLogin } = useContext(LoginContext);
+
   // modal popup video handler
   const [videoOpen, setVideoOpen] = useState(false);
   const handleClick = (e) => {
     e.preventDefault();
     setVideoOpen(true);
   };
-  return (
-    <div id="servicios" style={{marginBottom:'60px', paddingTop:10}}>
-      <section style={{ margin: "30px 0 0 0" }}>
-        <Container sx={styles.containerBox}>
-          <Box sx={styles.contentBox}>
-            <div>
-              <TextFeature title={data.title} />
 
-              <Grid sx={styles.grid}>
-                {data.features.map((item) => (
-                  <Box sx={styles.card} key={item.id}>
-                    <Image
-                      src={item.imgSrc}
-                      alt={item.altText}
-                      sx={styles.icon}
-                    />
+  if (!isLogin) {
+    return (
+      <div id="servicios" style={{ marginBottom: "60px", paddingTop: 10 }}>
+        <section style={{ margin: "30px 0 0 0" }}>
+          <Container sx={styles.containerBox}>
+            <Box sx={styles.contentBox}>
+              <div>
+                <TextFeature title={data.title} />
 
-                    <Box sx={styles.wrapper}>
-                      <Heading sx={styles.wrapper.title}>{item.title}</Heading>
-                      <Text sx={styles.wrapper.subTitle}>{item.text}</Text>
+                <Grid sx={styles.grid}>
+                  {data.features.map((item) => (
+                    <Box sx={styles.card} key={item.id}>
+                      <Image
+                        src={item.imgSrc}
+                        alt={item.altText}
+                        sx={styles.icon}
+                      />
+
+                      <Box sx={styles.wrapper}>
+                        <Heading sx={styles.wrapper.title}>
+                          {item.title}
+                        </Heading>
+                        <Text sx={styles.wrapper.subTitle}>{item.text}</Text>
+                      </Box>
                     </Box>
-                  </Box>
-                ))}
-              </Grid>
-            </div>
-          </Box>
-        </Container>
-      </section>
+                  ))}
+                </Grid>
+              </div>
+            </Box>
+          </Container>
+        </section>
 
-      <Box
-        sx={styles.thumbnail}
-        style={{
-          width: "100%",
-          height: 400,
-          display:'flex',
-          justifyContent:'center'
-        }}
-      >
-        <Image src={ServiceThumb} alt="Thumbnail" />
-        <Button
-          sx={styles.videoBtn}
-          onClick={handleClick}
-          aria-label="Play Button"
+        <Box
+          sx={styles.thumbnail}
+          style={{
+            width: "100%",
+            height: 400,
+            display: "flex",
+            justifyContent: "center",
+          }}
         >
-          <span>
-            <IoIosPlay />
-          </span>
-        </Button>
-      </Box>
-      <ModalVideo
-        channel="youtube"
-        isOpen={videoOpen}
-        videoId="1GSormW5_xo"
-        onClose={() => setVideoOpen(false)}
-      />
-    </div>
-  );
+          <Image src={ServiceThumb} alt="Thumbnail" />
+          <Button
+            sx={styles.videoBtn}
+            onClick={handleClick}
+            aria-label="Play Button"
+          >
+            <span>
+              <IoIosPlay />
+            </span>
+          </Button>
+        </Box>
+        <ModalVideo
+          channel="youtube"
+          isOpen={videoOpen}
+          videoId="1GSormW5_xo"
+          onClose={() => setVideoOpen(false)}
+        />
+      </div>
+    );
+  };
+
+  return null
 }
 
 const playPluse = keyframes`

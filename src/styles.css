@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,14 +8,19 @@
     list-style: none;
 }
 
-.container_all{
+.react-responsive-modal-modal {
+    border-radius: 10px !important;
+    padding: 0px !important;
+}
+
+.container_all {
     position: relative;
     right: 0;
     transition: all 300ms;
 }
 
 
-header{
+header {
     width: 100%;
     font-family: 'Poppins', sans-serif;
     position: fixed;
@@ -25,12 +30,12 @@ header{
     transition: all 300ms;
 }
 
-.move_content{
+.move_content {
     right: 180px;
 }
 
 
-.container__header{
+.container__header {
     max-width: 1200px;
     height: 100%;
     display: flex;
@@ -39,64 +44,64 @@ header{
     padding: 0px 20px;
 }
 
-header .logo{
+header .logo {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-header .logo img{
+header .logo img {
     width: 150px;
 }
 
-.container__nav{
+.container__nav {
     position: relative;
     height: 100%;
 }
 
-nav{
+nav {
     height: 100%;
 }
 
-nav ul{
+nav ul {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-nav ul li{
+nav ul li {
     margin: 0px 20px;
 }
 
-nav ul li a{
+nav ul li a {
     color: #fff;
     font-size: 14px;
 }
 
-.nav_mod{
+.nav_mod {
     height: 70px;
     box-shadow: 1px 1px 10px 0px #00000010;
     background: #fff;
 }
 
-.nav_mod a{
+.nav_mod a {
     color: #373737;
 }
 
-.nav_mod .select{
+.nav_mod .select {
     color: white;
 }
 
-.select{
+.select {
     background: #359EF9;
     padding: 10px 30px;
     color: white;
     border-radius: 20px;
 }
 
-.btn__menu{
+.btn__menu {
     width: 50px;
     height: 50px;
     font-size: 20px;
@@ -109,13 +114,13 @@ nav ul li a{
     display: none;
 }
 
-.btn__menu:hover{
+.btn__menu:hover {
     background: #f5f5f5;
 }
 
 /*COVER*/
 
-.cover{
+.cover {
     width: 100%;
     padding-bottom: 120px;
     font-family: 'Poppins', sans-serif;
@@ -126,7 +131,7 @@ nav ul li a{
 
 /*WAVE INICIO*/
 
-.bg_color{
+.bg_color {
     width: 100%;
     height: 70%;
     background: #002bfb;
@@ -134,7 +139,7 @@ nav ul li a{
     top: 0;
 }
 
-.wave{
+.wave {
     width: 6000px;
     height: 100%;
     position: absolute;
@@ -144,45 +149,50 @@ nav ul li a{
     background-position: bottom;
 }
 
-.w1{
+.w1 {
     animation: w1 14s linear infinite;
 }
 
-.w2{
+.w2 {
     animation: w2 14s linear -.125s infinite, desplazamiento 7s ease -.125s infinite;
     opacity: 0.5;
 }
 
 @keyframes w1 {
-    0%{
+    0% {
         margin-left: 0;
     }
-    100%{
+
+    100% {
         margin-left: -1600px;
     }
 }
 
 @keyframes w2 {
-    0%{
+    0% {
         margin-left: 0;
     }
-    100%{
+
+    100% {
         margin-left: -1600px;
     }
 }
 
 @keyframes desplazamiento {
-    0%, 100%{
+
+    0%,
+    100% {
         transform: translateY(-25px);
     }
 
-    50%{
+    50% {
         transform: translateY(10px);
     }
 }
-  /*WAVE FINAL*/
 
-.container__cover{
+/*WAVE FINAL*/
+
+.container__cover {
     max-width: 1200px;
     margin: auto;
     padding: 0px 40px;
@@ -195,7 +205,7 @@ nav ul li a{
 }
 
 
-.cover .container__info{
+.cover .container__info {
     max-width: 840px;
     margin-top: 0px;
     z-index: 2;
@@ -205,27 +215,27 @@ nav ul li a{
     justify-content: space-around;
 }
 
-.cover h1{
+.cover h1 {
     max-width: 840px;
     font-size: 60px;
     font-weight: 900;
     color: #fff;
 }
 
-.cover h2{
+.cover h2 {
     font-size: 60px;
     font-weight: 900;
     color: #fff;
     margin-top: -45px;
 }
 
-.cover p{
+.cover p {
     margin-top: 10px;
     color: #fff;
     max-width: 400px;
 }
 
-.cover input[type="button"]{
+.cover input[type="button"] {
     padding: 10px 40px;
     margin-top: 40px;
     font-size: 18px;
@@ -239,15 +249,15 @@ nav ul li a{
     transition: box-shadow 500ms;
 }
 
-.cover input[type="button"]:hover{
+.cover input[type="button"]:hover {
     box-shadow: 1px 1px 30px -5px #20202085;
 }
 
-.container__vector{
+.container__vector {
     position: relative;
 }
 
-.container__vector img{
+.container__vector img {
     position: absolute;
     bottom: -45px;
     right: 0px;
@@ -256,38 +266,40 @@ nav ul li a{
     animation: move_vector 8s ease-in-out infinite;
 }
 
-@keyframes move_vector{
-    0%{
+@keyframes move_vector {
+    0% {
         transform: translateY(10px);
     }
-    25%{
+
+    25% {
         transform: translateY(-10px);
     }
-    100%{
+
+    100% {
         transform: translateY(10px);
     }
 }
 
-@media screen and (max-width: 920px){
+@media screen and (max-width: 920px) {
 
-    .container__vector img{
+    .container__vector img {
         width: 500px;
     }
 }
 
-@media screen and (max-width: 760px){
+@media screen and (max-width: 760px) {
 
-    .container__nav{
-       display: flex;
-       justify-content: center;
-       align-items: center;
+    .container__nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .btn__menu{
+    .btn__menu {
         display: flex;
     }
 
-    nav{
+    nav {
         height: 100%;
         background: #F1FAFF;
         position: fixed;
@@ -297,19 +309,19 @@ nav ul li a{
         transition: all 300ms;
     }
 
-    .move_nav{
+    .move_nav {
         right: 0px;
     }
 
-    nav ul{
+    nav ul {
         flex-direction: column;
     }
 
-    nav ul li{
+    nav ul li {
         margin: 20px 0px;
     }
 
-    .container__vector img{
+    .container__vector img {
         transform: scale(0);
         animation: none;
     }
@@ -334,12 +346,12 @@ nav ul li a{
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
-:root{
-    --color-esqueleto:#EFF3F5;
+:root {
+    --color-esqueleto: #EFF3F5;
 }
 
 
-.container__article{
+.container__article {
     max-width: 1000px;
     padding: 0px 20px;
     margin: auto;
@@ -349,7 +361,7 @@ nav ul li a{
     justify-content: center;
 }
 
-.container__article .box__article{
+.container__article .box__article {
     width: 200px;
     height: 250px;
     background: var(--color-esqueleto);
@@ -358,7 +370,7 @@ nav ul li a{
 
 /*AQUI COMIENZA EL FOOTER*/
 
-#team{
+#team {
     width: 100%;
     padding: 50px 0px;
     font-family: 'Nunito', sans-serif;
@@ -367,7 +379,7 @@ nav ul li a{
     background-size: cover;
 }
 
-.container__footer{
+.container__footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -376,17 +388,17 @@ nav ul li a{
     padding-top: 100px;
 }
 
-.box__footer{
+.box__footer {
     display: flex;
     flex-direction: column;
     padding: 40px;
 }
 
-.box__footer .logo img{
+.box__footer .logo img {
     width: 180px;
 }
 
-.box__footer .terms{
+.box__footer .terms {
     max-width: 350px;
     margin-top: 20px;
     font-weight: 500;
@@ -395,40 +407,114 @@ nav ul li a{
 
 }
 
-.box__footer h2{
+.box__footer h2 {
     margin-bottom: 30px;
     color: #242424;
     font-weight: 700;
 }
 
-.box__footer a{
+.box__footer a {
     margin-top: 10px;
     color: #7a7a7a;
     font-weight: 600;
 }
 
-.box__footer a:hover{
+.box__footer a:hover {
     opacity: 0.8;
 }
 
-.box__footer a .fab{
+.box__footer a .fab {
     font-size: 20px;
 }
 
-.box__copyright{
+.box__copyright {
     max-width: 1200px;
     margin: auto;
     text-align: center;
     padding: 0px 40px;
 }
 
-.box__copyright p{
+.box__copyright p {
     margin-top: 20px;
     color: #7a7a7a;
 }
 
-.box__copyright hr{
+.box__copyright hr {
     border: none;
     height: 1px;
     background-color: #7a7a7a;
+}
+
+.login-box {
+    width: 320px;
+    background: #002bfb;
+    color: #fff;
+    padding: 40px 30px;
+}
+
+.login-box .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.login-box h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login-box label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.login-box input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    color: #002bfb;
+    font-size: 16px;
+    border-radius: 7px;
+}
+
+.login-box input[type="button"] {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: white;
+    color: #002bfb;
+    font-size: 18px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.login-box input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: rgb(237, 237, 237);
+}
+
+.login-box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.login-box a:hover {
+    color: #fff;
 }

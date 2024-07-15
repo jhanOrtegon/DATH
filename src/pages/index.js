@@ -29,7 +29,6 @@ export default function IndexPage() {
           <TeamSection />
           <CoreFeature />
           <TestimonialCard />
-          <Subscribe />
         </Layout>
       </StickyProvider>
     </ThemeProvider>

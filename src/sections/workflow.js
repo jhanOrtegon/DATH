@@ -6,6 +6,8 @@ import SectionHeader from "components/section-header";
 import PatternBG from "assets/patternBG.png";
 import ArrowOdd from "assets/arrowOdd.svg";
 import ArrowEven from "assets/arrowEven.svg";
+import { useContext } from "react";
+import { LoginContext } from "contexts/login-context";
 
 const data = [
   {
@@ -31,29 +33,35 @@ const data = [
 ];
 
 export default function WorkFlow() {
-  return (
-    <section sx={styles.workflow}>
-      <Container>
-        <SectionHeader
-          slogan="Whats the function"
-          title="Valores"
-          isWhite={true}
-        />
+  const { isLogin } = useContext(LoginContext);
 
-        <Grid sx={styles.grid}>
-          {data.map((item) => (
-            <Box sx={styles.card} key={item.id}>
-              <Box sx={styles.iconBox}>{`0${item.id}`}</Box>
-              <Box sx={styles.wrapper}>
-                <Heading sx={styles.wrapper.title}>{item.title}</Heading>
-                <Text sx={styles.wrapper.subTitle}>{item.text}</Text>
+  if (!isLogin) {
+    return (
+      <section sx={styles.workflow}>
+        <Container>
+          <SectionHeader
+            slogan="Whats the function"
+            title="Valores"
+            isWhite={true}
+          />
+
+          <Grid sx={styles.grid}>
+            {data.map((item) => (
+              <Box sx={styles.card} key={item.id}>
+                <Box sx={styles.iconBox}>{`0${item.id}`}</Box>
+                <Box sx={styles.wrapper}>
+                  <Heading sx={styles.wrapper.title}>{item.title}</Heading>
+                  <Text sx={styles.wrapper.subTitle}>{item.text}</Text>
+                </Box>
               </Box>
-            </Box>
-          ))}
-        </Grid>
-      </Container>
-    </section>
-  );
+            ))}
+          </Grid>
+        </Container>
+      </section>
+    );
+  }
+
+  return null
 }
 
 const styles = {

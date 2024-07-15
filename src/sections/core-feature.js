@@ -5,6 +5,8 @@ import Image from "components/image";
 
 import FeatureThumb from "assets/organigrama.png";
 import ModalImage from "react-modal-image";
+import { useContext } from "react";
+import { LoginContext } from "contexts/login-context";
 
 const data = {
   title: "Nuestro organigrama",
@@ -13,28 +15,34 @@ const data = {
 };
 
 export default function CoreFeature() {
-  return (
-    <section id="estructura">
-      <Container sx={styles.containerBox}>
-        <Box sx={styles.contentBox}>
-          <TextFeature
-            subTitle={data.subTitle}
-            title={data.title}
-            description={data.description}
-            btnName={data.btnName}
-            btnURL={data.btnURL}
-          />
-        </Box>
-        <Box sx={styles.thumbnail}>
-          <ModalImage
-            small={FeatureThumb}
-            large={FeatureThumb}
-            alt="Hello World!"
-          />;
-        </Box>
-      </Container>
-    </section>
-  );
+  const { isLogin } = useContext(LoginContext);
+
+  if(!isLogin){
+    return (
+      <section id="estructura">
+        <Container sx={styles.containerBox}>
+          <Box sx={styles.contentBox}>
+            <TextFeature
+              subTitle={data.subTitle}
+              title={data.title}
+              description={data.description}
+              btnName={data.btnName}
+              btnURL={data.btnURL}
+            />
+          </Box>
+          <Box sx={styles.thumbnail}>
+            <ModalImage
+              small={FeatureThumb}
+              large={FeatureThumb}
+              alt="Hello World!"
+            />;
+          </Box>
+        </Container>
+      </section>
+    );
+  };
+
+  return null
 }
 
 const styles = {

@@ -15,8 +15,9 @@ import ModalVideo from "react-modal-video";
 import { IoIosPlay } from "react-icons/io";
 import service from "assets/service.png";
 import ServiceThumb from "assets/service-thumb.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import PatternBG from "assets/patternBG.png";
+import { LoginContext } from "contexts/login-context";
 
 const data = {
   subTitle: "",
@@ -55,73 +56,80 @@ const data = {
 };
 
 export default function TestimonialCard() {
+  const { isLogin } = useContext(LoginContext);
+
   // modal popup video handler
   const [videoOpen, setVideoOpen] = useState(false);
   const handleClick = (e) => {
     e.preventDefault();
     setVideoOpen(true);
   };
-  return (
-    <div style={{ marginBottom: "60px" }}>
-      <section style={{ margin: "30px 0 0 0" }}>
-        <Container sx={styles.containerBox}>
-          <Box sx={styles.contentBox}>
-            <div>
-              <TextFeature title={data.title} />
 
-              <Text sx={styles.subTitleCenter}>
-                Las políticas internas de nuestra empresa Dath son un conjunto
-                de principios y normas, que guían la conducta técnica de los
-                profesionales que la ejercen. Se trata de un marco de
-                referencia, que establece los valores y deberes que dichos
-                profesionales deben respetar, para mantener un alto nivel de
-                integridad y responsabilidad en su práctica.
-              </Text>
+  if (!isLogin) {
+    return (
+      <div style={{ marginBottom: "60px" }}>
+        <section style={{ margin: "30px 0 0 0" }}>
+          <Container sx={styles.containerBox}>
+            <Box sx={styles.contentBox}>
+              <div>
+                <TextFeature title={data.title} />
 
-              <div
-                style={{
-                  padding: "0 40px",
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "20px",
-                }}
-              >
-                {data.features?.map((el) => (
-                  <div
-                    key={el.id}
-                    style={{
-                      background: "#002bfb",
-                      padding: "10px",
-                      borderRadius: 10,
-                      color: "white",
-                      display: "grid",
-                      gridTemplateColumns: "20px 1fr",
-                      gap: 10,
-                      alignItems: "center",
-                      textAlign: "center",
-                    }}
-                  >
+                <Text sx={styles.subTitleCenter}>
+                  Las políticas internas de nuestra empresa Dath son un conjunto
+                  de principios y normas, que guían la conducta técnica de los
+                  profesionales que la ejercen. Se trata de un marco de
+                  referencia, que establece los valores y deberes que dichos
+                  profesionales deben respetar, para mantener un alto nivel de
+                  integridad y responsabilidad en su práctica.
+                </Text>
+
+                <div
+                  style={{
+                    padding: "0 40px",
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "20px",
+                  }}
+                >
+                  {data.features?.map((el) => (
                     <div
+                      key={el.id}
                       style={{
-                        background: "white",
-                        padding: 5,
-                        borderRadius: 5,
-                        color: "#002bfb",
+                        background: "#002bfb",
+                        padding: "10px",
+                        borderRadius: 10,
+                        color: "white",
+                        display: "grid",
+                        gridTemplateColumns: "20px 1fr",
+                        gap: 10,
+                        alignItems: "center",
                         textAlign: "center",
                       }}
                     >
-                      {el.id}
+                      <div
+                        style={{
+                          background: "white",
+                          padding: 5,
+                          borderRadius: 5,
+                          color: "#002bfb",
+                          textAlign: "center",
+                        }}
+                      >
+                        {el.id}
+                      </div>
+                      <div>{el.text}</div>
                     </div>
-                    <div>{el.text}</div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          </Box>
-        </Container>
-      </section>
-    </div>
-  );
+            </Box>
+          </Container>
+        </section>
+      </div>
+    );
+  }
+
+  return null
 }
 
 const playPluse = keyframes`
